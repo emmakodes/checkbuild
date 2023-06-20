@@ -19,11 +19,15 @@ WORKDIR /repo/eos9ei3
 # Clone the GitHub repository into the 'eos9ei3' folder
 RUN git clone https://github.com/GemmaTuron/eos9ei3.git .
 
+RUN ls -a
+
 # Move back to the 'repo' directory
 WORKDIR /repo
 
+RUN ls -a
+
 # Other instructions...
-RUN ersilia -v fetch eos9ei3 --repo_path .
+RUN ersilia -v fetch eos9ei3 --repo_path eos9ei3
 
 # List files and folders in the current directory
-RUN ls -a
+
