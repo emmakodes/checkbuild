@@ -13,8 +13,11 @@ RUN apt-get update && apt-get install -y git
 # Clone the GitHub repository into the desired directory
 RUN git clone https://github.com/GemmaTuron/eos9ei3.git .
 
+# List files and folders in the current directory
+RUN ls -a
+
 # Other instructions...
-RUN ersilia -v fetch eos9ei3 --repo_path eos9ei3
+RUN ersilia -v fetch eos9ei3 --repo_path .
 
 
 
