@@ -1,8 +1,8 @@
 # Use a base image
 FROM ersiliaos/base:latest
 
-ARG MODEL=eos526j
-ENV MODEL=eos526j
+ARG MODEL=eos9ei3
+ENV MODEL=eos9ei3
 
 # Set the working directory in the container
 WORKDIR /repo
@@ -11,10 +11,10 @@ WORKDIR /repo
 RUN apt-get update && apt-get install -y git
 
 # Clone the GitHub repository into the desired directory
-RUN git clone https://github.com/emmakodes/eos526j.git .
+RUN git clone https://github.com/GemmaTuron/eos9ei3.git .
 
 # Other instructions...
-RUN ersilia -v fetch eos526j --repo_path .
+RUN ersilia -v fetch eos9ei3 --repo_path .
 
 
 
