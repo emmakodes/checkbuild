@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y git
 RUN git clone https://github.com/GemmaTuron/eos9ei3.git .
 
 # Other instructions...
-RUN ersilia -v fetch eos9ei3 --repo_path .
+RUN ersilia -v fetch eos9ei3 --repo_path eos9ei3
 
 
 
