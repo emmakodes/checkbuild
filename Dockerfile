@@ -27,7 +27,7 @@ WORKDIR /repo
 RUN ls -a
 
 # Other instructions...
-RUN ersilia -v fetch eos9tyg --repo_path eos9tyg
+RUN ersilia -v fetch eos22io --repo_path eos22io
 
 # List files and folders in the current directory
 
