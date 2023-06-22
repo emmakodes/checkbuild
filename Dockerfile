@@ -1,8 +1,8 @@
 # Use a base image
 FROM ersiliaos/base:latest
 
-ARG MODEL=eos9tyg
-ENV MODEL=eos9tyg
+ARG MODEL=eos22io
+ENV MODEL=eos22io
 
 # Set the working directory in the container
 WORKDIR /repo
@@ -11,13 +11,13 @@ WORKDIR /repo
 RUN apt-get update && apt-get install -y git
 
 # Create the 'eos9ei3' folder
-RUN mkdir eos9tyg
+RUN mkdir eos22io
 
 # Change directory to 'eos9ei3'
-WORKDIR /repo/eos9tyg
+WORKDIR /repo/eos22io
 
 # Clone the GitHub repository into the 'eos9ei3' folder
-RUN git clone https://github.com/emmakodes/eos9tyg.git .
+RUN git clone https://github.com/emmakodes/eos22io.git .
 
 RUN ls -a
 
