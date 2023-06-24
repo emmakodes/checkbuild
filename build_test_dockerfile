@@ -1,8 +1,12 @@
 # Use a base image
 FROM ersiliaos/base:latest
 
-ARG MODEL=eos9ei3
-ENV MODEL=eos9ei3
+
+model_id = sys.argv[1]
+repo_url = sys.argv[2]
+
+ARG MODEL=model_id
+ENV MODEL=model_id
 
 # Set the working directory in the container
 WORKDIR /repo
@@ -11,13 +15,13 @@ WORKDIR /repo
 RUN apt-get update && apt-get install -y git
 
 # Create the 'eos9ei3' folder
-RUN mkdir eos9ei3
+RUN mkdir model_id
 
 # Change directory to 'eos9ei3'
-WORKDIR /repo/eos9ei3
+WORKDIR /repo/model_id
 
 # Clone the GitHub repository into the 'eos9ei3' folder
-RUN git clone https://github.com/emmakodes/eos9ei3.git .
+RUN git clone repo_url .
 
 RUN ls -a
 
@@ -27,6 +31,6 @@ WORKDIR /repo
 RUN ls -a
 
 # Other instructions...
-RUN ersilia -v fetch eos9ei3 --repo_path eos9ei3
+RUN ersilia -v fetch model_id --repo_path model_id
 
 # List files and folders in the current directory
