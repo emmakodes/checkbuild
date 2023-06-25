@@ -14,10 +14,10 @@ WORKDIR /repo
 RUN apt-get update && apt-get install -y git
 
 # Create the 'model' folder
-RUN mkdir model_id
+RUN mkdir $MODEL
 
 # Change directory to 'model'
-WORKDIR /repo/model_id
+WORKDIR /repo/$MODEL
 
 # Clone the GitHub repository into the 'model' folder
 RUN git clone $REPO .
