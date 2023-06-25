@@ -1,12 +1,11 @@
 # Use a base image
 FROM ersiliaos/base:latest
 
+ARG MODEL=eos_identifier
+ARG REPO=eos_repo
 
-model_id = sys.argv[1]
-repo_url = sys.argv[2]
-
-ARG MODEL=model_id
-ENV MODEL=model_id
+ENV MODEL=$MODEL
+ENV REPO=$REPO
 
 # Set the working directory in the container
 WORKDIR /repo
@@ -14,14 +13,14 @@ WORKDIR /repo
 # Install Git
 RUN apt-get update && apt-get install -y git
 
-# Create the 'eos9ei3' folder
+# Create the 'model' folder
 RUN mkdir model_id
 
-# Change directory to 'eos9ei3'
+# Change directory to 'model'
 WORKDIR /repo/model_id
 
-# Clone the GitHub repository into the 'eos9ei3' folder
-RUN git clone repo_url .
+# Clone the GitHub repository into the 'model' folder
+RUN git clone $REPO .
 
 RUN ls -a
 
@@ -30,7 +29,6 @@ WORKDIR /repo
 
 RUN ls -a
 
-# Other instructions...
-RUN ersilia -v fetch model_id --repo_path model_id
+# Fetch Model
+RUN ersilia -v fetch $MODEL --repo_path $MODEL
 
-# List files and folders in the current directory
