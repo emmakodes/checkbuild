@@ -24,6 +24,9 @@ RUN git clone $REPO .
 
 RUN ls -a
 
+# Print the message before calculating the size of the checkpoints folder
+RUN echo "The size of the checkpoints directory (README file is in the checkpoints directory):"
+
 # Calculate the size of the checkpoints folder and display the result
 RUN du -sh /repo/$MODEL/model/checkpoints
 
