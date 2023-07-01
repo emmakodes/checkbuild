@@ -24,6 +24,9 @@ RUN git clone $REPO .
 
 RUN ls -a
 
+# Calculate the size of the checkpoints folder and display the result
+RUN du -sh /repo/$MODEL/model/checkpoints
+
 # Move back to the 'repo' directory
 WORKDIR /repo
 

@@ -1,7 +1,7 @@
-name: Local Model Test on push 
+name: Local Model Test on push
 
 on:
-  push: 
+  push:
     branches: ['main']
   workflow_dispatch:
 
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout persist credentials
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin@v3.5.2
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+          persist-credentials: false
+          fetch-depth: 0
           lfs: 'true'
       
       - name: Add conda to system path
@@ -48,8 +48,37 @@ jobs:
           echo "Sample model id selected: $MODEL_ID"
           ersilia -v fetch $MODEL_ID --repo_path .
           ersilia -v serve $MODEL_ID
-          ersilia sample -n 5 -f input.csv
-          ersilia -v api -i input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia sample -n 1 -f input.csv"
+              time ersilia sample -n 1 -f input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia -v api -i input.csv"
+              time ersilia -v api -i input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia sample -n 10 -f input.csv"
+              time ersilia sample -n 10 -f input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia -v api -i input.csv"
+              time ersilia -v api -i input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia sample -n 100 -f input.csv"
+              time ersilia sample -n 100 -f input.csv
+
+          - name: Measure command execution time
+            run: |
+              echo "Executing ersilia -v api -i input.csv"
+              time ersilia -v api -i input.csv
+
           ersilia close
           
       - name: Upload log output
