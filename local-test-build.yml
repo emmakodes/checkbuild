@@ -1,4 +1,4 @@
-name: Test model build for linux/amd64 and linux/arm64
+name: Local model build Test for linux/amd64 and linux/arm64
 
 on:
   push: 
