@@ -54,7 +54,7 @@ Here is a summary of what each step does:
 - Add conda to system path: Adds Conda (a package and environment manager) to the system's PATH.
 - Source conda: Sources Conda environment configurations.
 - Install dependencies: Installs dependencies like git-lfs and gh (GitHub CLI) using Conda.
-- Install ersilia: Installs the Ersilia from git+https://github.com/ersilia-os/ersilia.git using pip.
+- Install ersilia: Installs Ersilia from `git+https://github.com/ersilia-os/ersilia.git` using pip.
 - Fetch, Serve, and predict the output of Model: Fetches, serve and predicts the output of a model identified by the repository name.
 - Sample an input.csv with a single input: Samples an input.csv file with a single input using ersilia.
 - Measure command execution time to predict a single input: Measures the execution time to predict a single input using ersilia.
