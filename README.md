@@ -1,5 +1,5 @@
 ## checkbuild
-This repository is designed to assist in testing whether a model can be fetched successfully and if the packages in the Dockerfile function correctly for both linux/amd64 and linux/arm64 architectures, all within the context of your forked version of the model. This allows you to test these functionalities without having open a PR or wait for your pull request to be merged.
+This repository is designed to assist in testing whether a model can be fetched successfully and if the packages in the Dockerfile function correctly for both linux/amd64 and linux/arm64 architectures, all within the context of your forked version of the model. This allows you to test these functionalities without having to open a PR or wait for your pull request to be merged.
 
 ## To utilize this repository, follow these steps:
 
@@ -9,7 +9,7 @@ This repository is designed to assist in testing whether a model can be fetched 
 - Run `git push` on the terminal to push your changes to GitHub
 - Check the outcome of the workflow from your Actions tab on GitHub
 
-<br><br>
+<br><br><br><br>
 
 
 ## local-test-build.yml file
