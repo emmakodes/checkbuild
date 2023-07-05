@@ -50,19 +50,19 @@ Each step has a name field that provides a description of the step.
 
 Here is a summary of what each step does:
 
-- Checks out the repository cod
-- Adds Conda (a package and environment manager) to the system's PATH.
-- Sources Conda environment configurations.
-- Installs dependencies like git-lfs and gh (GitHub CLI) using Conda.
-- Installs the Ersilia from git+https://github.com/ersilia-os/ersilia.git using pip.
-- Fetches, serves and predicts the output of a model identified by the repository name.
-- Samples an input.csv file with a single input using ersilia.
-- Measures the execution time to predict a single input using ersilia.
-- Samples an input.csv file with 10 inputs using ersilia.
-- Measures the execution time to predict 10 inputs using ersilia.
-- Samples an input.csv file with 100 inputs using ersilia.
-- Measures the execution time to predict 100 inputs using ersilia.
-- Closes the ersilia process.
-- Uploads the console.log file as an artifact for debugging purposes.
+- Checkout persist credentials: Checks out the repository code
+- Add conda to system path: Adds Conda (a package and environment manager) to the system's PATH.
+- Source conda: Sources Conda environment configurations.
+- Install dependencies: Installs dependencies like git-lfs and gh (GitHub CLI) using Conda.
+- Install ersilia: Installs the Ersilia from git+https://github.com/ersilia-os/ersilia.git using pip.
+- Fetch, Serve, and predict the output of Model: Fetches, serve and predicts the output of a model identified by the repository name.
+- Sample an input.csv with a single input: Samples an input.csv file with a single input using ersilia.
+- Measure command execution time to predict a single input: Measures the execution time to predict a single input using ersilia.
+- Sample an input.csv with 10 inputs: Samples an input.csv file with 10 inputs using ersilia.
+- Measure command execution time to predict 10 inputs: Measures the execution time to predict 10 inputs using ersilia.
+- Sample an input.csv with 100 inputs: Samples an input.csv file with 100 inputs using ersilia.
+- Measure command execution time to predict 100 inputs: Measures the execution time to predict 100 inputs using ersilia.
+- Close ersilia: Closes the ersilia process.
+- Upload log output: Uploads the console.log file as an artifact for debugging purposes.
   
 Overall, this YAML file sets up a workflow that performs various actions, such as installing dependencies, executing the ersilia package for model testing and prediction, and generating logs for debugging.
