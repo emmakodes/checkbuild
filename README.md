@@ -3,10 +3,10 @@ This repository is designed to assist in testing whether a model can be fetched 
 
 ## To utilize this repository, follow these steps:
 
-- Copy the files "local-test-model.yml" and "local-test-build.yml" to your "github/workflows" directory.
-- Run `git add .` on the terminal
+- Copy the files "local-test-model.yml" and "local-test-build.yml" to your model's "github/workflows" directory.
+- Run `git add .` on the terminal to add latest changes in the working directory to the staging area
 - Use the command `git commit -m "local test"` to trigger the workflows defined in "local-test-model.yml" and "local-test-build.yml".
-- `git push`
+- Run `git push` on the terminal to push your changes to GitHub
 - Check the outcome of the workflow from your Actions tab on GitHub
 
 <br><br>
@@ -27,3 +27,42 @@ Here's a breakdown of the steps performed in the job:
 
 Overall, this workflow sets up the necessary environment, generates a Dockerfile, and builds Docker images for the specified platforms when triggered by a push event with a specific commit message or manually through the GitHub Actions interface.
 
+
+
+<br><br><br>
+## local-test-model.yml file
+This YAML file is a configuration file for a GitHub Actions workflow.
+
+Let's break down the code:
+
+- The name field specifies the name of the workflow.
+- The on field specifies the events that trigger the workflow. In this case, the workflow is triggered on push events to the main branch and manual triggering using the workflow dispatch event.
+- The jobs field defines one or more jobs that will be executed as part of the workflow. In this case, there is a single job named test.
+- The if field within the test job specifies a conditional expression that determines whether the job should run or not. It checks if the repository is not equal to 'ersilia-os/eos-template' and if the commit message contains the string 'local test'.
+- The runs-on field specifies the type of machine or environment on which the job will run. In this case, it runs on an Ubuntu latest environment.
+- The steps field defines a sequence of steps to be executed within the job.
+Each step has a name field that provides a description of the step.
+- The run field contains the shell commands to be executed for that step.
+- The uses field specifies an action to be used for that step. Actions are reusable units of code that can be executed as part of a workflow. They are defined by other users or organizations and can be referenced using their GitHub repository and version.
+- The with field provides additional configuration or inputs for a step.
+
+
+
+Here is a summary of what each step does:
+
+- Checks out the repository cod
+- Adds Conda (a package and environment manager) to the system's PATH.
+- Sources Conda environment configurations.
+- Installs dependencies like git-lfs and gh (GitHub CLI) using Conda.
+- Installs the Ersilia from git+https://github.com/ersilia-os/ersilia.git using pip.
+- Fetches, serves and predicts the output of a model identified by the repository name.
+- Samples an input.csv file with a single input using ersilia.
+- Measures the execution time to predict a single input using ersilia.
+- Samples an input.csv file with 10 inputs using ersilia.
+- Measures the execution time to predict 10 inputs using ersilia.
+- Samples an input.csv file with 100 inputs using ersilia.
+- Measures the execution time to predict 100 inputs using ersilia.
+- Closes the ersilia process.
+- Uploads the console.log file as an artifact for debugging purposes.
+  
+Overall, this YAML file sets up a workflow that performs various actions, such as installing dependencies, executing the ersilia package for model testing and prediction, and generating logs for debugging.
