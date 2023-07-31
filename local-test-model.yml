@@ -23,11 +23,14 @@ jobs:
       - name: Source conda
         run: source $CONDA/etc/profile.d/conda.sh
 
+      - name: Set Python to 3.10.10
+        run:
+         conda install -y python=3.10.10 
+
       - name: Install dependencies
         run: |
           source activate
           conda init
-          conda install -n base python=3.10.10
           conda install git-lfs -c conda-forge
           git-lfs install
           conda install gh -c conda-forge
@@ -47,6 +50,7 @@ jobs:
           source activate
           echo "Sample model id selected: $MODEL_ID"
           ersilia -v fetch $MODEL_ID --repo_path .
+          python -c "import psutil; print('RAM usage after fetch:', round(psutil.Process().memory_info().rss / (1024 ** 3), 2), 'GB')"
           ersilia -v serve $MODEL_ID
           ersilia sample -n 5 -f input.csv
           ersilia -v api -i input.csv
@@ -60,6 +64,7 @@ jobs:
         run: |
           echo "Executing ersilia -v api -i input.csv"
           time ersilia -v api -i input.csv
+          python -c "import psutil; print('RAM usage for predicting single input:', round(psutil.Process().memory_info().rss / (1024 ** 3), 2), 'GB')"
 
       - name: Sample an input.csv with 10 inputs
         run: |
