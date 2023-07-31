@@ -13,7 +13,7 @@ This repository is designed to assist in testing whether a model can be fetched 
 
 
 ## local-test-build.yml file
-This YAML file defines a workflow named "Local model build Test for linux/amd64 and linux/arm64" that is triggered on a push event to the 'main' branch and can also be manually triggered using the workflow_dispatch event.
+This YAML file defines a workflow named `Local model build Test for linux/amd64 and linux/arm64` that is triggered on a push event to the 'main' branch and can also be manually triggered using the workflow_dispatch event.
 
 The workflow consists of a single job named "test_linux_amd64_and_amr64_build" that runs on the latest version of Ubuntu. The job is conditional and will only run if the commit message contains the string 'local test'.
 
