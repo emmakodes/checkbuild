@@ -5,7 +5,7 @@ This repository is designed to assist in testing whether a model can be fetched 
 
 - Copy the files `local-test-model.yml` and `local-test-build.yml` to the forked model's `github/workflows` directory.
 - Run `git add .` on the terminal to add latest changes in the working directory to the staging area
-- Use the command `git commit -m "local test"` to trigger the workflows defined in "local-test-model.yml" and "local-test-build.yml".
+- Use the command `git commit -m "local test"` to trigger the workflows defined in `local-test-model.yml` and `local-test-build.yml`.
 - Run `git push` on the terminal to push your changes to GitHub
 - Check the outcome of the workflow from your Actions tab on GitHub
 
