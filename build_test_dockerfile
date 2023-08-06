@@ -1,4 +1,3 @@
-# Use a base image
 FROM ersiliaos/base:latest
 
 ARG MODEL=eos_identifier
